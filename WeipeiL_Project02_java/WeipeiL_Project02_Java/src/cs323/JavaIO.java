@@ -1,0 +1,105 @@
+package cs323;
+import java.io.*;
+import java.util.Scanner;
+
+public class JavaIO {
+	public static void processWord(File a, File b) throws IOException{
+        try {
+  
+            
+            FileReader fr = new FileReader(a);
+            Scanner input = new Scanner(fr);
+           
+            FileOutputStream fos=new FileOutputStream(b);  
+           BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(fos));
+            int cout = 0;
+            while(input.hasNext()){
+              String word = input.next();
+             
+              if(cout>=5){
+                fw.newLine();
+                cout=0;
+              }
+              fw.write(word+" ");
+              cout++;
+              
+            }
+            
+            fr.close();
+            fw.close();
+  
+           
+            System.out.println(
+                "File reading and writing both done");
+        }
+  
+        
+        catch (IOException e) {
+  
+            
+          
+            System.out.println(
+                "There are some IOException");
+        }
+    }
+    
+    public static void processInt(File a, File b) throws IOException{
+        try {
+  
+            
+            FileReader fr = new FileReader(a);
+            Scanner input = new Scanner(fr);
+           
+            FileOutputStream fos=new FileOutputStream(b);  
+           BufferedWriter fw = new BufferedWriter(new OutputStreamWriter(fos));
+            int cout = 0;
+            while(input.hasNextInt()){
+              int word = input.nextInt();
+              if(cout>=5){
+                fw.newLine();
+                cout=0;
+              }
+              fw.write(word+" ");
+              cout++;
+              
+            }
+            
+            fr.close();
+            fw.close();
+  
+           
+            System.out.println(
+                "File reading and writing both done");
+        }
+  
+        
+        catch (IOException e) {
+            System.out.println(
+                "There are some IOException");
+        }
+    }
+    
+    public static void main(String[] args)throws IOException
+    {     
+    	String c = args[0];
+    	String a = args[1];
+        String d = args[2];
+        String b= args[3];
+
+        File inFile1 = new File(c);
+        File outFile1 = new File(d);
+        
+        File inFile2 = new File(a);
+        File outFile2 = new File(b);
+
+       
+
+        
+
+        processInt(inFile1,outFile1);
+        processWord(inFile2,outFile2);
+
+  
+      }
+
+}

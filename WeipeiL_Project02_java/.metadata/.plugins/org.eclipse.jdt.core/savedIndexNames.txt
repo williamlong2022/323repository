@@ -1,0 +1,2 @@
+INDEX VERSION 1.131+/Users/william/Desktop/eclips/.metadata/.plugins/org.eclipse.jdt.core
+2164669573.index
